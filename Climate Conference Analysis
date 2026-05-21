@@ -17,21 +17,18 @@ CREATE TABLE reservations (
   , welcome_rsvp BIT
   , dinner_rsvp BIT
   );
- 
- 
+  
 CREATE TABLE events (
     event_id INTEGER PRIMARY KEY
   , event_name TEXT
   , event_type TEXT
   );
   
-
 CREATE TABLE hotels (
     hotel_id INTEGER PRIMARY KEY
   , hotel_name TEXT
   , address TEXT
   );
-
 
 INSERT INTO vips VALUES
 (2814, 'Fletcher', 'David', 5, 3742, 'Anishinabek Educational Institute', 'education', 2004)
@@ -66,7 +63,6 @@ INSERT INTO vips VALUES
 ,(2800, 'Lee', 'Min-Jun', NULL, NULL, 'US Department of Renewable Energy', 'government', 2004)
 ;
 
-
 INSERT INTO reservations VALUES
  (3491,  1, 1, 1)
 ,(4361,  1, 1, 1)
@@ -100,7 +96,6 @@ INSERT INTO reservations VALUES
 ,(1934,  3, 1, 1)
 ;
 
-
 INSERT INTO events VALUES
   (1, 'Climate Change Communication: Engaging the Public and Policy Makers', 'Keynote')
 , (2, 'Climate Change and Public Health: Risks and Responses', 'Panel')
@@ -115,7 +110,6 @@ INSERT INTO events VALUES
 , (11, 'Urban Resilience: Designing Climate-Smart Cities', 'Workshop')
 , (12, 'The Role of Policy in Combating Climate Change', 'Workshop')
 ;
-
 
 INSERT INTO hotels VALUES
    (1, 'Hyatt Downtown', '392 South Main Street, Cityville, PA')
