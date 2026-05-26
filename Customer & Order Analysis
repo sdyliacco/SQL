@@ -47,3 +47,18 @@ ON customers.order_id = FebSales.orderID
 WHERE length(orderID) = 6
 AND orderID <> 'Order ID'
 AND FebSales.quantity > 2 ;
+
+--Find the location for the order placed on 02/18/19 at 1:35am.
+SELECT location
+FROM BIT_DB.FebSales
+WHERE orderdate = '02/18/19 01:35' ;
+
+--Find the number of orders placed on 02/18/19.
+SELECT sum(quantity)
+FROM BIT_DB.FebSales
+WHERE orderdate like '02/18/19%' ;
+
+--Find the order ID starting with 16, followed by one unknown character, followed by 0, and followed by any number of characters after.
+SELECT orderID
+FROM BIT_DB.MarSales
+WHERE orderID LIKE '16_0%'
