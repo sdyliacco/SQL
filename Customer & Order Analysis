@@ -104,3 +104,176 @@ AND orderid <> 'Order ID'
 GROUP BY product 
 ORDER BY revenue desc
 LIMIT 1 ;
+
+
+--This portion of the analysis is visualized in my Tableau dashboard 'Tech Sales Report':
+
+--Which products are sold?
+SELECT DISTINCT product
+FROM JanSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' ;
+
+--Which product made the most revenue? Which month had the most revenue from that product?
+SELECT product , SUM(price*quantity) as revenue
+FROM JanSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY product
+ORDER BY revenue desc
+LIMIT 1 ;
+
+SELECT product , SUM(price*quantity) as revenue
+FROM FebSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY product
+ORDER BY revenue desc
+LIMIT 1 ;
+
+SELECT product , SUM(price*quantity) as revenue
+FROM MarSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY product
+ORDER BY revenue desc
+LIMIT 1 ;
+
+SELECT product , SUM(price*quantity) as revenue
+FROM AprSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY product
+ORDER BY revenue desc
+LIMIT 1 ;
+
+SELECT product , SUM(price*quantity) as revenue
+FROM MaySales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY product
+ORDER BY revenue desc
+LIMIT 1 ;
+
+--Which product had the highest quantity sold? Which month had the highest quantity?
+SELECT product, SUM(quantity) as total_quantity
+FROM JanSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY product
+ORDER BY total_quantity desc
+LIMIT 1 ;
+
+SELECT product, SUM(quantity) as total_quantity
+FROM FebSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY product
+ORDER BY total_quantity desc
+LIMIT 1 ;
+
+SELECT product, SUM(quantity) as total_quantity
+FROM MarSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY product
+ORDER BY total_quantity desc
+LIMIT 1 ;
+
+SELECT product, SUM(quantity) as total_quantity
+FROM AprSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY product
+ORDER BY total_quantity desc
+LIMIT 1 ;
+
+SELECT product, SUM(quantity) as total_quantity
+FROM MaySales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY product
+ORDER BY total_quantity desc
+LIMIT 1 ;
+
+--Which location has highest revenue? (Different limitations to view all tied results)
+SELECT location, SUM(quantity*price) as revenue
+FROM JanSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY location
+ORDER BY revenue desc
+LIMIT 1 ;
+
+SELECT location, SUM(quantity*price) as revenue
+FROM FebSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY location
+ORDER BY revenue desc
+LIMIT 3 ;
+
+SELECT location, SUM(quantity*price) as revenue
+FROM MarSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY location
+ORDER BY revenue desc
+LIMIT 1 ;
+
+SELECT location, SUM(quantity*price) as revenue
+FROM AprSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY location
+ORDER BY revenue desc
+LIMIT 1 ;
+
+SELECT location, SUM(quantity*price) as revenue
+FROM MaySales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY location
+ORDER BY revenue desc
+LIMIT 1 ;
+
+--Which address has the most orders? (Different limitations to view all tied results)
+SELECT location, COUNT(orderID) as total_orders
+FROM JanSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY location
+ORDER BY total_orders desc
+LIMIT 4 ;
+
+SELECT location, COUNT(orderID) as total_orders
+FROM FebSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY location
+ORDER BY total_orders desc
+LIMIT 1 ;
+
+SELECT location, COUNT(orderID) as total_orders
+FROM MarSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY location
+ORDER BY total_orders desc
+LIMIT 3 ;
+
+SELECT location, COUNT(orderID) as total_orders
+FROM AprSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY location
+ORDER BY total_orders desc
+LIMIT 2 ;
+
+SELECT location, COUNT(orderID) as total_orders
+FROM MaySales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID' 
+GROUP BY location
+ORDER BY total_orders desc
+LIMIT 5 ;
